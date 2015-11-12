@@ -24,7 +24,7 @@ namespace U_DENTAL.APP.DAO
 
         int insertExpediente(String nombre, String apellidos, DateTime fechaNac, char sexo);
 
-        Boolean insertMedico(String dni, String nombre, String apeliido, Especialidad especialidad);
+        Boolean insertMedico(String dni, String nombre, String apellido, Especialidad especialidad);
 
         Boolean insertEspecialidad(String nombre);
 

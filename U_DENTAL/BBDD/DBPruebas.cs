@@ -28,129 +28,160 @@ namespace U_DENTAL.BBDD
             inicializarDatos();
         }
 
-        public Box altaBox()
+        public void asignaEspecialidadExpediente(Expediente expediente, Especialidad especialidad)
         {
-            throw new NotImplementedException();
+            expediente.Especialidad = especialidad;
         }
 
-        public Especialidad altaEspecialidad(string especialidad)
+        public void asignaMedicoExpediente(Expediente expediente, Medico medico)
         {
-            throw new NotImplementedException();
-        }
-
-        public Expediente altaExpediente(string nombre, string apellidos, DateTime fechaNac, char sexo)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Medico altaMedico(string dni, string nombre, string apellido, Especialidad especialidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Box> asignaEspecialidadExpediente(Especialidad especialidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Box> AsignaEspecialidadExpediente(Especialidad especialidad)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Especialidad> asignaMedicoExpediente(Medico medico)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IList<Especialidad> AsignaMedicoExpediente(Medico medico)
-        {
-            throw new NotImplementedException();
+            expediente.Medico = medico;
         }
 
         public int insertBox()
         {
-            throw new NotImplementedException();
+            this.boxes.Add(new Box(this.box += 1));
+            return this.box;
         }
 
         public bool insertEspecialidad(string nombre)
         {
-            throw new NotImplementedException();
+            if (this.especialidades.Any(x => x.Nombre == nombre))
+                return false;
+            this.especialidades.Add(new Especialidad(nombre));
+            return true;
         }
 
         public int insertExpediente(string nombre, string apellidos, DateTime fechaNac, char sexo)
         {
-            throw new NotImplementedException();
+            this.expedientes.Add(new Expediente(this.expediente += 1, nombre, apellidos, fechaNac, sexo));
+            return this.expediente;
         }
 
-        public bool insertMedico(string dni, string nombre, string apeliido, Especialidad especialidad)
+        public bool insertMedico(string dni, string nombre, string apellido, Especialidad especialidad)
         {
-            throw new NotImplementedException();
+            if (this.medicos.Any(x => x.DniMedico == dni))
+                return false;
+            this.medicos.Add(new Medico(dni, nombre, apellido, especialidad));
+            return true;
         }
 
         public IList<Box> selectAllBoxes()
         {
-            throw new NotImplementedException();
+            return this.boxes;
         }
 
         public IList<Especialidad> selectAllEspecialidades()
         {
-            throw new NotImplementedException();
+            return this.especialidades;
         }
 
         public IList<Expediente> selectAllExpedientes()
         {
-            throw new NotImplementedException();
+            return this.expedientes;
         }
 
         public IList<Medico> selectAllMedicos()
         {
-            throw new NotImplementedException();
+            return this.medicos;
         }
 
         public Box selectBox(int idBox)
-        {
-            throw new NotImplementedException();
+        { // La ids empiezan en 1.
+            return this.boxes[idBox - 1]; 
         }
 
         public Especialidad selectEspecialidad(string especialidad)
         {
-            throw new NotImplementedException();
+            foreach (Especialidad espe in this.especialidades)
+                if (espe.Nombre == especialidad)
+                    return espe;
+            return null;
         }
 
         public Expediente selectExpediente(int nExpediente)
+        { // La ids empiezan en 1.
+            return this.expedientes[nExpediente - 1];
+        }
+
+        public Expediente selectExpediente(Box box)
         {
-            throw new NotImplementedException();
+            foreach (Box tempBox in this.boxes)
+                if (tempBox.Equals(box))
+                    return tempBox.Cliente;
+            return null;
         }
 
         public IList<Expediente> selectExpedientes(Box box)
         {
-            throw new NotImplementedException();
+            IList<Expediente> tempExpe = new List<Expediente>();
+            foreach (Expediente expe in this.expedientes)
+                if (expe.Medico.Libre && box.Especialidades.Contains(expe.Especialidad))
+                    tempExpe.Add(expe);
+            return tempExpe;
         }
 
         public IList<Expediente> selectExpedientes(string nombre, string apellido)
         {
-            throw new NotImplementedException();
+            IList<Expediente> tempExpe = new List<Expediente>();
+            foreach (Expediente expe in this.expedientes)
+                if (expe.Nombre == nombre && expe.Apellido == apellido)
+                    tempExpe.Add(expe);
+            return tempExpe;
+        }
+
+        public IList<Expediente> selectExpedientes(string dniMedico)
+        {
+            IList<Expediente> tempExpe = new List<Expediente>();
+            foreach (Expediente expe in this.expedientes)
+                if (expe.Medico.DniMedico == dniMedico)
+                    tempExpe.Add(expe);
+            return tempExpe;
         }
 
         public Medico selectMedico(string dniMedico)
         {
-            throw new NotImplementedException();
+            foreach (Medico medico in this.medicos)
+                if (medico.DniMedico == dniMedico)
+                    return medico;
+            return null;
         }
 
         public IList<Medico> selectMedicos(Especialidad especialidad)
         {
-            throw new NotImplementedException();
-        }
-
-        public void updateExpediente()
-        {
-            throw new NotImplementedException();
+            IList<Medico> tempMedicos = new List<Medico>();
+            foreach (Medico medico in this.medicos)
+                if (medico.Especialidad == especialidad)
+                    tempMedicos.Add(medico);
+            return tempMedicos;
         }
 
         private void inicializarDatos()
         {
-            //this.expedientes.Ad
+            // Expedientes / Clientes
+            this.insertExpediente("Nombre 1", "Apellido 1", DateTime.Parse("12/12/1912"), 'H');
+            this.insertExpediente("Nombre 2", "Apellido 2", DateTime.Parse("13/11/1912"), 'M');
+            this.insertExpediente("Nombre 3", "Apellido 3", DateTime.Parse("14/10/1912"), 'H');
+            this.insertExpediente("Nombre 4", "Apellido 4", DateTime.Parse("15/09/1912"), 'M');
+
+            // Especialidades
+            this.insertEspecialidad("Especialidad 1");
+            this.insertEspecialidad("Especialidad 2");
+            this.insertEspecialidad("Especialidad 3");
+            this.insertEspecialidad("Especialidad 4");
+
+            // Medicos
+            this.insertMedico("12345678A", "Medico 1", "ApellidoMedico 1", this.selectEspecialidad("Especialidad 1"));
+            this.insertMedico("12345678B", "Medico 2", "ApellidoMedico 2", this.selectEspecialidad("Especialidad 1"));
+            this.insertMedico("12345678C", "Medico 3", "ApellidoMedico 3", this.selectEspecialidad("Especialidad 2"));
+            this.insertMedico("12345678D", "Medico 4", "ApellidoMedico 4", this.selectEspecialidad("Especialidad 2"));
+
+            // Boxes
+            int temp;
+            temp = this.insertBox();
+            this.insertBox();
+            this.insertBox();
+            this.insertBox();
         }
     }
 }
