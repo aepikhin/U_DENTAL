@@ -158,11 +158,9 @@ namespace U_DENTAL.BBDD
 
         private void inicializarDatos()
         {
-            // Expedientes / Clientes
-            this.insertExpediente("Nombre 1", "Apellido 1", DateTime.Parse("12/12/1912"), 'H');
-            this.insertExpediente("Nombre 2", "Apellido 2", DateTime.Parse("13/11/1912"), 'M');
-            this.insertExpediente("Nombre 3", "Apellido 3", DateTime.Parse("14/10/1912"), 'H');
-            this.insertExpediente("Nombre 4", "Apellido 4", DateTime.Parse("15/09/1912"), 'M');
+
+            int temp;
+
 
             // Especialidades
             this.insertEspecialidad("Especialidad 1");
@@ -175,13 +173,35 @@ namespace U_DENTAL.BBDD
             this.insertMedico("12345678B", "Medico 2", "ApellidoMedico 2", this.selectEspecialidad("Especialidad 1"));
             this.insertMedico("12345678C", "Medico 3", "ApellidoMedico 3", this.selectEspecialidad("Especialidad 2"));
             this.insertMedico("12345678D", "Medico 4", "ApellidoMedico 4", this.selectEspecialidad("Especialidad 2"));
+            this.insertMedico("12345678E", "Medico 5", "ApellidoMedico 5", this.selectEspecialidad("Especialidad 3"));
+
+            // Expedientes / Clientes
+            temp = this.insertExpediente("Nombre 1", "Apellido 1", DateTime.Parse("12/12/1912"), 'H');
+            this.asignaMedicoExpediente(this.selectExpediente(temp), this.selectMedico("12345678A"));
+            this.asignaEspecialidadExpediente(this.selectExpediente(temp), this.selectEspecialidad("Especialidad 1"));
+
+            temp = this.insertExpediente("Nombre 2", "Apellido 2", DateTime.Parse("13/11/1912"), 'M');
+            this.asignaMedicoExpediente(this.selectExpediente(temp), this.selectMedico("12345678E"));
+            this.asignaEspecialidadExpediente(this.selectExpediente(temp), this.selectEspecialidad("Especialidad 3"));
+
+            this.insertExpediente("Nombre 3", "Apellido 3", DateTime.Parse("14/10/1912"), 'H');
+
+            this.insertExpediente("Nombre 4", "Apellido 4", DateTime.Parse("15/09/1912"), 'M');
 
             // Boxes
-            int temp;
             temp = this.insertBox();
-            this.insertBox();
-            this.insertBox();
-            this.insertBox();
+            this.selectBox(temp).Cliente = this.selectExpediente(1);
+            this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 1") };
+            this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 2") };
+            temp = this.insertBox();
+            this.selectBox(temp).Cliente = null;
+            this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 2") };
+            temp = this.insertBox();
+            this.selectBox(temp).Cliente = null;
+            this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 3") };
+            temp = this.insertBox();
+            this.selectBox(temp).Cliente = this.selectExpediente(2);
+            this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 3") };
         }
     }
 }
