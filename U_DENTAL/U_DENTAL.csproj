@@ -75,8 +75,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="VIEW\app\altaMedico.aspx" />
+    <Content Include="VIEW\app\altaPaciente.aspx" />
+    <Content Include="VIEW\app\asignaBox.aspx" />
+    <Content Include="VIEW\app\buscarExpediente.aspx" />
     <Content Include="VIEW\app\css\styles.css" />
     <Content Include="VIEW\app\default.aspx" />
+    <Content Include="VIEW\app\images\logo-dental-pao_1.jpg" />
+    <Content Include="VIEW\app\modificarExpediente.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +93,34 @@
     <Compile Include="BBDD\DATA\Medico.cs" />
     <Compile Include="BBDD\DBPruebas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VIEW\app\altaMedico.aspx.cs">
+      <DependentUpon>altaMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIEW\app\altaMedico.aspx.designer.cs">
+      <DependentUpon>altaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\app\altaPaciente.aspx.cs">
+      <DependentUpon>altaPaciente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIEW\app\altaPaciente.aspx.designer.cs">
+      <DependentUpon>altaPaciente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\app\asignaBox.aspx.cs">
+      <DependentUpon>asignaBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIEW\app\asignaBox.aspx.designer.cs">
+      <DependentUpon>asignaBox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\app\buscarExpediente.aspx.cs">
+      <DependentUpon>buscarExpediente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIEW\app\buscarExpediente.aspx.designer.cs">
+      <DependentUpon>buscarExpediente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\app\default.aspx.cs">
       <DependentUpon>default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -94,11 +128,16 @@
     <Compile Include="VIEW\app\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="VIEW\app\modificarExpediente.aspx.cs">
+      <DependentUpon>modificarExpediente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIEW\app\modificarExpediente.aspx.designer.cs">
+      <DependentUpon>modificarExpediente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="VIEW\test.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VIEW\app\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

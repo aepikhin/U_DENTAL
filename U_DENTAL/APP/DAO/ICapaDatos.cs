@@ -8,19 +8,9 @@ namespace U_DENTAL.APP.DAO
 {
     interface ICapaDatos
     {
-        Especialidad altaEspecialidad(String especialidad);
+        void asignaEspecialidadExpediente(Expediente expediente, Especialidad especialidad);
 
-        IList<Box> AsignaEspecialidadExpediente(Especialidad especialidad);
-
-        IList<Especialidad> AsignaMedicoExpediente(Medico medico);
-
-        Expediente altaExpediente(String nombre, String apellidos, DateTime fechaNac, Char sexo);
-
-        Medico altaMedico(String dni, String nombre, String apellido, Especialidad especialidad);
-
-        Box altaBox();
-
-        void updateExpediente();
+        void asignaMedicoExpediente(Expediente expediente, Medico medico);
 
         int insertExpediente(String nombre, String apellidos, DateTime fechaNac, char sexo);
 
@@ -51,9 +41,5 @@ namespace U_DENTAL.APP.DAO
         Box selectBox(int idBox);
 
         IList<Expediente> selectExpedientes(Box box);
-
-        IList<Box> asignaEspecialidadExpediente(Especialidad especialidad);
-
-        IList<Especialidad> asignaMedicoExpediente(Medico medico);
     }
 }
