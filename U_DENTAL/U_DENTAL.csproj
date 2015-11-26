@@ -81,6 +81,7 @@
     <Content Include="VIEW\app\buscarExpediente.aspx" />
     <Content Include="VIEW\app\css\styles.css" />
     <Content Include="VIEW\app\default.aspx" />
+    <Content Include="VIEW\app\grabado.aspx" />
     <Content Include="VIEW\app\images\logo-dental-pao_1.jpg" />
     <Content Include="VIEW\app\modificarExpediente.aspx" />
     <Content Include="Web.config" />
@@ -127,6 +128,13 @@
     </Compile>
     <Compile Include="VIEW\app\default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VIEW\app\grabado.aspx.cs">
+      <DependentUpon>grabado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VIEW\app\grabado.aspx.designer.cs">
+      <DependentUpon>grabado.aspx</DependentUpon>
     </Compile>
     <Compile Include="VIEW\app\modificarExpediente.aspx.cs">
       <DependentUpon>modificarExpediente.aspx</DependentUpon>

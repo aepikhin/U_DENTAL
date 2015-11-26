@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using U_DENTAL.DDBB.DATA;
+using U_DENTAL.BBDD.DATA;
 
 namespace U_DENTAL.APP.DAO
 {
     interface ICapaDatos
     {
+        IList<String> selectAllDiagnosticos();
+
         void asignaEspecialidadExpediente(Expediente expediente, Especialidad especialidad);
 
         void asignaMedicoExpediente(Expediente expediente, Medico medico);
@@ -23,8 +25,10 @@ namespace U_DENTAL.APP.DAO
         IList<Expediente> selectAllExpedientes();
 
         Expediente selectExpediente(int nExpediente);
+        
+        IList<Expediente> selectExpedientesNombre(String nombre);
 
-        IList<Expediente> selectExpedientes(String nombre, String apellido);
+        IList<Expediente> selectExpedientesApellidos(String apellido);
 
         IList<Medico> selectAllMedicos();
 
@@ -39,6 +43,8 @@ namespace U_DENTAL.APP.DAO
         IList<Box> selectAllBoxes();
 
         Box selectBox(int idBox);
+
+        Box selectBox(Expediente expediente);
 
         IList<Expediente> selectExpedientes(Box box);
     }

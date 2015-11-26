@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace U_DENTAL.DDBB.DATA
+namespace U_DENTAL.BBDD.DATA
 {
     public class Expediente
     {
@@ -77,7 +77,7 @@ namespace U_DENTAL.DDBB.DATA
             set { this.tratamiento = value; }
         }
 
-        public String TipoDiagnostic
+        public String TipoDiagnostico
         {
             get { return this.tipoDiagnostico; }
             set { this.tipoDiagnostico = value; }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace U_DENTAL.DDBB.DATA
+namespace U_DENTAL.BBDD.DATA
 {
     public class Medico
     {

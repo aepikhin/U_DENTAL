@@ -45,7 +45,7 @@
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelSexo" runat="server" Text="Sexo"></asp:Label></td>
                 <td colspan="2">
-                    <asp:RadioButtonList ID="RadioButtonList1" runat="server">
+                    <asp:RadioButtonList ID="RadioButtonListSexo" runat="server">
                         <asp:ListItem Value="H" Selected="True">Hombre</asp:ListItem>
                         <asp:ListItem Value="M">Mujer</asp:ListItem>
                     </asp:RadioButtonList>
