@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="APP\DAO\ICapaDatos.cs" />
     <Compile Include="BBDD\DATA\Box.cs" />
+    <Compile Include="BBDD\DATA\CheckNif.cs" />
     <Compile Include="BBDD\DATA\Especialidad.cs" />
     <Compile Include="BBDD\DATA\Expediente.cs" />
     <Compile Include="BBDD\DATA\Medico.cs" />

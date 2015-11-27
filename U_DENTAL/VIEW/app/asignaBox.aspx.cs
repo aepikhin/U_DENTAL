@@ -30,7 +30,7 @@ namespace U_DENTAL.VIEW.app
                     } else
                     {
                         String text = "" + boxes[i].IdBox;
-                        ListBoxBoxesLibres.Items.Add(text);
+                        ListBoxBoxesLibres.Items.Insert(0, new ListItem(text, "" + boxes[i].IdBox));
                     }
                 }
             }
@@ -38,7 +38,16 @@ namespace U_DENTAL.VIEW.app
 
         protected void ButtonAceptar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/VIEW/app/grabado.aspx");
+            if(ListBoxBoxesLibres.SelectedValue != null && DropDownListPacientesParaAsignar.SelectedValue != "0")
+            {
+                int box = 0, nexp = 0;
+                int.TryParse(ListBoxBoxesLibres.SelectedValue, out box);
+                int.TryParse(DropDownListPacientesParaAsignar.SelectedValue, out nexp);
+                db.selectBox(box).Cliente = db.selectExpediente(nexp);
+                db.selectBox(box).Cliente.Medico.Libre = false;
+                Response.Redirect("~/VIEW/app/grabado.aspx");
+            }
+            
         }
 
         protected void ButtonCancelar_Click(object sender, EventArgs e)

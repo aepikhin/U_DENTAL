@@ -15,29 +15,21 @@ namespace U_DENTAL.VIEW.app
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*db = (DBPruebas)Session["db"];
-            IList<Especialidad> esp = (IList<Especialidad>)db.selectAllEspecialidades();
-            for (int i=0; i < esp.Count; i++)
-            {
-                DropDownListEspecialidad.Items.Insert("");
-            }*/
-            
+            db = (DBPruebas)Session["db"];
         }
 
         protected void ButtonAceptar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/VIEW/app/default.aspx");
+            if(TextNombre.Text.Trim() != "" && TextApellidos.Text.Trim() != "" && !CheckNif.Check(TextDni.Text, false))
+            {
+                db.insertMedico(TextDni.Text, TextNombre.Text, TextApellidos.Text, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue));
+                Response.Redirect("~/VIEW/app/grabado.aspx");
+            }
         }
 
         protected void ButtonCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/VIEW/app/default.aspx");
-        }
-
-        protected override void OnUnload(EventArgs e)
-        {
-            base.OnUnload(e);
-            //Session["db"] = db;
         }
 
         protected void DropDownListEspecialidad_SelectedIndexChanged(object sender, EventArgs e)

@@ -16,7 +16,7 @@
     </div>
     <div id="menu_container">
         
-        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#CC0000" Text="GRABADO..."></asp:Label>
+        <asp:Label ID="Label1" runat="server" Font-Bold="True" Font-Size="XX-Large" ForeColor="#CC0000" Text="GRABANDO..."></asp:Label>
         
     </div>
     </form>

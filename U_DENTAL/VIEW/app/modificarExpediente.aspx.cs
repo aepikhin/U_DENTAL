@@ -34,10 +34,16 @@ namespace U_DENTAL.VIEW.app
                 if(box != null)
                 {
                     TextBoxBox.Text = "" + box.IdBox;
-                    DropDownListEspecialidad.Items.Insert(0, new ListItem(exp.Medico.Nombre + " " + exp.Medico.Apellido , "0"));
+                    DropDownListEspecialidad.Items.Insert(0, new ListItem(exp.Especialidad.Nombre, "0"));
                     DropDownListEspecialidad.Enabled = false;
-                    DropDownListMedico.Items.Insert(0, new ListItem(exp.Especialidad.Nombre , "0"));
+                    DropDownListMedico.Items.Insert(0, new ListItem(exp.Medico.Nombre + " " + exp.Medico.Apellido, "0"));
                     DropDownListMedico.Enabled = false;
+                    if(exp.TipoDiagnostico != null)
+                    {
+                        DropDownListTipoDiagnostico.SelectedValue = exp.TipoDiagnostico;
+                        TextBoxDiagnostico.Text = exp.Diagnostico;
+                        TextBoxTratamiento.Text = exp.Tratamiento;
+                    }
                 }
                 else
                 {
@@ -58,11 +64,23 @@ namespace U_DENTAL.VIEW.app
         {
             if (box != null)
             {
-                if(TextBoxTratamiento.Text != "" && DropDownListTipoDiagnostico.SelectedValue != "null" && TextBoxDiagnostico.Text != "")
+                if(TextBoxTratamiento.Text.Trim() != "" && DropDownListTipoDiagnostico.SelectedValue != "null" && TextBoxDiagnostico.Text.Trim() != "")
                 {
                     exp.TipoDiagnostico = DropDownListTipoDiagnostico.SelectedValue;
-                    exp.Diagnostico = TextBoxDiagnostico.Text;
-                    exp.Tratamiento = TextBoxTratamiento.Text;
+                    if(exp.TipoDiagnostico == "alta")
+                    {
+                        db.selectBox(exp).Cliente = null;
+                        exp.Medico.Libre = true;
+                        exp.Medico = null;
+                        exp.Especialidad = null;
+                        exp.TipoDiagnostico = null;
+                        exp.Diagnostico = null;
+                        exp.Tratamiento = null;
+                    } else
+                    {
+                        exp.Diagnostico = TextBoxDiagnostico.Text;
+                        exp.Tratamiento = TextBoxTratamiento.Text;
+                    }
                     Response.Redirect("~/VIEW/app/grabado.aspx");
                 }
             }
@@ -71,7 +89,6 @@ namespace U_DENTAL.VIEW.app
                 if (DropDownListMedico.SelectedValue != "0")
                 {
                     Medico med = db.selectMedico(DropDownListMedico.SelectedValue);
-                    med.Libre = false;
                     db.asignaMedicoExpediente(exp, med);
                     db.asignaEspecialidadExpediente(exp, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue));
                     Response.Redirect("~/VIEW/app/grabado.aspx");

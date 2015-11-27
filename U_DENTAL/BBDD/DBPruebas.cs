@@ -221,6 +221,7 @@ namespace U_DENTAL.BBDD
             // Boxes
             temp = this.insertBox();
             this.selectBox(temp).Cliente = this.selectExpediente(1);
+            this.selectBox(temp).Cliente.Medico.Libre = false;
             this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 1") };
             this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 2") };
             temp = this.insertBox();
@@ -231,14 +232,14 @@ namespace U_DENTAL.BBDD
             this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 3") };
             temp = this.insertBox();
             this.selectBox(temp).Cliente = this.selectExpediente(2);
+            this.selectBox(temp).Cliente.Medico.Libre = false;
             this.selectBox(temp).Especialidades = new List<Especialidad>() { this.selectEspecialidad("Especialidad 3") };
 
             // Diagnosticos
-            this.diagnosticos.Add("null");
-            this.diagnosticos.Add("alta");
             this.diagnosticos.Add("leve");
             this.diagnosticos.Add("grave");
             this.diagnosticos.Add("muy grave");
+            this.diagnosticos.Add("alta");
         }
     }
 }
