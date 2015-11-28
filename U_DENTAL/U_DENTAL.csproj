@@ -144,7 +144,6 @@
     <Compile Include="VIEW\app\modificarExpediente.aspx.designer.cs">
       <DependentUpon>modificarExpediente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="VIEW\test.cs" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

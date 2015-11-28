@@ -15,8 +15,6 @@ namespace U_DENTAL.BBDD.DATA
 
         private Especialidad especialidad;
 
-        private IList<Box> boxes;
-
         private Boolean libre;
 
         public Medico(String dni, String nombre, String apellido, Especialidad especialidad)
@@ -25,7 +23,6 @@ namespace U_DENTAL.BBDD.DATA
             this.nombre = nombre;
             this.apellido = apellido;
             this.especialidad = especialidad;
-            boxes = new List<Box>();
             this.libre = true;
         }
 
@@ -49,18 +46,6 @@ namespace U_DENTAL.BBDD.DATA
         public Especialidad Especialidad
         {
             get { return this.especialidad; }
-        }
-
-        public IList<Box> Boxes
-        {
-            set
-            {
-                for (int i = 0; i < value.Count; i++)
-                {
-                    this.boxes.Add(value[i]);
-                }
-            }
-            get { return this.boxes; }
         }
 
         public Boolean Libre

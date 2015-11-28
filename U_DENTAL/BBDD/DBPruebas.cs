@@ -177,7 +177,7 @@ namespace U_DENTAL.BBDD
         {
             IList<Medico> tempMedicos = new List<Medico>();
             foreach (Medico medico in this.medicos)
-                if (medico.Especialidad == especialidad && medico.Libre)
+                if (medico.Especialidad == especialidad)
                     tempMedicos.Add(medico);
             return tempMedicos;
         }

@@ -54,8 +54,12 @@ namespace U_DENTAL.VIEW.app
                     {
                         DropDownListEspecialidad.Items.Insert(DropDownListEspecialidad.Items.Count, new ListItem(esp.Nombre, esp.Nombre));
                     }
+                    if(exp.Especialidad != null)
+                        DropDownListEspecialidad.SelectedValue = "" + exp.Especialidad.Nombre;
                     TextBoxBox.Text = "Ninguno";
                     rellenarMedicos(db.selectEspecialidad(DropDownListEspecialidad.SelectedItem.Text));
+                    if (exp.Medico != null)
+                        DropDownListMedico.SelectedValue = "" + exp.Medico.DniMedico;
                     DropDownListTipoDiagnostico.Enabled = false;
                     TextBoxDiagnostico.Enabled = false;
                     TextBoxTratamiento.Enabled = false;
@@ -91,8 +95,7 @@ namespace U_DENTAL.VIEW.app
             {
                 if (DropDownListMedico.SelectedValue != "0")
                 {
-                    Medico med = db.selectMedico(DropDownListMedico.SelectedValue);
-                    db.asignaMedicoExpediente(exp, med);
+                    db.asignaMedicoExpediente(exp, db.selectMedico(DropDownListMedico.SelectedValue));
                     db.asignaEspecialidadExpediente(exp, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue));
                     Response.Redirect("~/VIEW/app/grabado.aspx");
                 } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
