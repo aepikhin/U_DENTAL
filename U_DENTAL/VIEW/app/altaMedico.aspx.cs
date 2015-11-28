@@ -16,6 +16,7 @@ namespace U_DENTAL.VIEW.app
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DBPruebas)Session["db"];
+            TextDni.Focus();
         }
 
         protected void ButtonAceptar_Click(object sender, EventArgs e)
@@ -24,7 +25,7 @@ namespace U_DENTAL.VIEW.app
             {
                 db.insertMedico(TextDni.Text, TextNombre.Text, TextApellidos.Text, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue));
                 Response.Redirect("~/VIEW/app/grabado.aspx");
-            }
+            } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
         }
 
         protected void ButtonCancelar_Click(object sender, EventArgs e)

@@ -58,22 +58,22 @@ namespace U_DENTAL.VIEW.app {
         protected global::System.Web.UI.WebControls.TextBox TextBoxNombreYApellidos;
         
         /// <summary>
-        /// Control LabelFechaNacimiento.
+        /// Control LabelEdad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFechaNacimiento;
+        protected global::System.Web.UI.WebControls.Label LabelEdad;
         
         /// <summary>
-        /// Control TextBoxFechaNacimiento.
+        /// Control TextBoxEdad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxFechaNacimiento;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxEdad;
         
         /// <summary>
         /// Control LabelSexo.

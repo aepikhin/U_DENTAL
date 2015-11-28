@@ -22,13 +22,16 @@ namespace U_DENTAL.VIEW.app
             int.TryParse((String)Session["nexp"], out nexp);
             exp = db.selectExpediente(nexp);
             box = db.selectBox(exp);
+            if (box != null) DropDownListTipoDiagnostico.Focus();
+            else DropDownListEspecialidad.Focus();
+            
             if (!IsPostBack)
             {
                 TextBoxNExp.Text = "" + exp.NExpediente;
                 TextBoxNombreYApellidos.Text = exp.Nombre + " " + exp.Apellido;
-                TextBoxFechaNacimiento.Text = exp.FechaNac.ToShortDateString();
                 TextBoxSexo.Text = exp.Sexo.ToString();
-
+                string edad = (new DateTime(DateTime.Now.Subtract(exp.FechaNac).Ticks).Year - 1).ToString();
+                TextBoxEdad.Text = (edad != "0") ? edad + " años" : (new DateTime(DateTime.Now.Subtract(exp.FechaNac).Ticks).Month - 1).ToString() + " meses";
                 rellenarDiagnostico();
 
                 if(box != null)
@@ -82,7 +85,7 @@ namespace U_DENTAL.VIEW.app
                         exp.Tratamiento = TextBoxTratamiento.Text;
                     }
                     Response.Redirect("~/VIEW/app/grabado.aspx");
-                }
+                } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
             }
             else
             {
@@ -92,7 +95,7 @@ namespace U_DENTAL.VIEW.app
                     db.asignaMedicoExpediente(exp, med);
                     db.asignaEspecialidadExpediente(exp, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue));
                     Response.Redirect("~/VIEW/app/grabado.aspx");
-                }
+                } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
             }
         }
 

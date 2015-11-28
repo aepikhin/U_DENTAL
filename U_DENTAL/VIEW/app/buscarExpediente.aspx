@@ -20,7 +20,7 @@
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelBuscar" runat="server" Text="Buscar por NºEXP o nombre y apellidos"></asp:Label></td>
                 <td colspan="2">
-                    <asp:TextBox ID="TextBuscar" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBuscar" runat="server" TabIndex="1"></asp:TextBox>
                 </td>
             </tr>
             <tr>
@@ -32,16 +32,16 @@
                     </asp:RadioButtonList>
                 </td>
                 <td colspan="2">
-                    <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" OnClick="ButtonBuscar_Click" />
+                    <asp:Button ID="ButtonBuscar" runat="server" Text="Buscar" OnClick="ButtonBuscar_Click" TabIndex="2" />
                 </td>
             </tr>
             <tr>
             <td class="TdToRight">
-                <asp:ListBox ID="ListBoxEncontrados" runat="server" OnSelectedIndexChanged="ListBoxEncontrados_SelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
+                <asp:ListBox ID="ListBoxEncontrados" runat="server" OnSelectedIndexChanged="ListBoxEncontrados_SelectedIndexChanged" AutoPostBack="True" TabIndex="3"></asp:ListBox>
             </td>
             <td colspan="2">
-                <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" />
-                <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click"  />
+                <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" TabIndex="4" />
+                <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click" TabIndex="5"  />
             </td>
             </tr>
         </table>

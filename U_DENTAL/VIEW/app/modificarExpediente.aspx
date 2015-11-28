@@ -28,9 +28,9 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="TdToRight"><asp:Label ID="LabelFechaNacimiento" runat="server" Text="Fecha Nacimiento"></asp:Label></td>
+                    <td class="TdToRight"><asp:Label ID="LabelEdad" runat="server" Text="Edad"></asp:Label></td>
                     <td colspan="2">
-                        <asp:TextBox ID="TextBoxFechaNacimiento" runat="server" Enabled="False"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxEdad" runat="server" Enabled="False"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -42,14 +42,14 @@
                 <tr>
                     <td class="TdToRight"><asp:Label ID="LabelEspecialidad" runat="server" Text="Especialidad"></asp:Label></td>
                     <td colspan="2">
-                        <asp:DropDownList ID="DropDownListEspecialidad" runat="server" OnSelectedIndexChanged="DropDownListEspecialidad_SelectedIndexChanged" AutoPostBack="True">
+                        <asp:DropDownList ID="DropDownListEspecialidad" runat="server" OnSelectedIndexChanged="DropDownListEspecialidad_SelectedIndexChanged" AutoPostBack="True" TabIndex="1">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
                     <td class="TdToRight"><asp:Label ID="LabelMedico" runat="server" Text="Medico"></asp:Label></td>
                     <td colspan="2">
-                        <asp:DropDownList ID="DropDownListMedico" runat="server" OnSelectedIndexChanged="DropDownListMedico_SelectedIndexChanged">
+                        <asp:DropDownList ID="DropDownListMedico" runat="server" OnSelectedIndexChanged="DropDownListMedico_SelectedIndexChanged" TabIndex="2">
                         </asp:DropDownList>
                     </td>
                 </tr>
@@ -62,28 +62,28 @@
                 <tr>
                     <td class="TdToRight"><asp:Label ID="LabelTipoDiagnostico" runat="server" Text="TipoDiagnostico"></asp:Label></td>
                     <td colspan="2">
-                        <asp:DropDownList ID="DropDownListTipoDiagnostico" runat="server" OnSelectedIndexChanged="DropDownListTipoDiagnostico_SelectedIndexChanged">
+                        <asp:DropDownList ID="DropDownListTipoDiagnostico" runat="server" OnSelectedIndexChanged="DropDownListTipoDiagnostico_SelectedIndexChanged" TabIndex="3">
                         </asp:DropDownList>
                     </td>
                 </tr>
                 <tr>
                     <td class="TdToRight"><asp:Label ID="LabelDiagnostico" runat="server" Text="Diagnostico"></asp:Label></td>
                     <td colspan="2">
-                        <asp:TextBox ID="TextBoxDiagnostico" runat="server" Height="92px" TextMode="MultiLine" Width="221px"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxDiagnostico" runat="server" Height="92px" TextMode="MultiLine" Width="221px" TabIndex="4"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="TdToRight"><asp:Label ID="LabelTratamiento" runat="server" Text="Tratamiento"></asp:Label></td>
                     <td colspan="2">
-                        <asp:TextBox ID="TextBoxTratamiento" runat="server" Height="92px" TextMode="MultiLine" Width="221px"></asp:TextBox>
+                        <asp:TextBox ID="TextBoxTratamiento" runat="server" Height="92px" TextMode="MultiLine" Width="221px" TabIndex="5"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
                     <td class="TdToRight">
                     </td>
                     <td colspan="2">
-                        <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" />
-                        <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click"  />
+                        <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" TabIndex="6" />
+                        <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click" TabIndex="7"  />
                     </td>
                 </tr>
             </table>

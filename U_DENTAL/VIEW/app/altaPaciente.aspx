@@ -20,11 +20,11 @@
         <table class="content">
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelNombre" runat="server" Text="Nombre"></asp:Label></td>
-                <td colspan="2"><asp:TextBox ID="TextNombre" runat="server"></asp:TextBox></td>
+                <td colspan="2"><asp:TextBox ID="TextNombre" runat="server" TabIndex="1"></asp:TextBox></td>
             </tr>
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelApellidos" runat="server" Text="Apellidos"></asp:Label></td>
-                <td colspan="2"><asp:TextBox ID="TextApellidos" runat="server"></asp:TextBox></td>
+                <td colspan="2"><asp:TextBox ID="TextApellidos" runat="server" TabIndex="2"></asp:TextBox></td>
             </tr>
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelFechaNacimiento" runat="server" Text="Fecha de nacimiento"></asp:Label></td>
@@ -34,18 +34,18 @@
                     <asp:Label ID="LabelAnio" runat="server" Text="Año"></asp:Label>
                 </td>
                 <td>
-                    <asp:DropDownList ID="DropDownListDias" runat="server" OnSelectedIndexChanged="DropDownListDias_SelectedIndexChanged">
+                    <asp:DropDownList ID="DropDownListDias" runat="server" OnSelectedIndexChanged="DropDownListDias_SelectedIndexChanged" TabIndex="3">
                     </asp:DropDownList><br />
-                    <asp:DropDownList ID="DropDownListMeses" runat="server" OnSelectedIndexChanged="DropDownListMeses_SelectedIndexChanged">
+                    <asp:DropDownList ID="DropDownListMeses" runat="server" OnSelectedIndexChanged="DropDownListMeses_SelectedIndexChanged" TabIndex="4">
                     </asp:DropDownList><br />
-                    <asp:DropDownList ID="DropDownListAnios" runat="server" OnSelectedIndexChanged="DropDownListAnios_SelectedIndexChanged">
+                    <asp:DropDownList ID="DropDownListAnios" runat="server" OnSelectedIndexChanged="DropDownListAnios_SelectedIndexChanged" TabIndex="5">
                     </asp:DropDownList>
                 </td>
             </tr>
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelSexo" runat="server" Text="Sexo"></asp:Label></td>
                 <td colspan="2">
-                    <asp:RadioButtonList ID="RadioButtonListSexo" runat="server">
+                    <asp:RadioButtonList ID="RadioButtonListSexo" runat="server" TabIndex="6">
                         <asp:ListItem Value="H" Selected="True">Hombre</asp:ListItem>
                         <asp:ListItem Value="M">Mujer</asp:ListItem>
                     </asp:RadioButtonList>
@@ -54,8 +54,8 @@
             <tr>
                 <td class="TdToRight"></td>
                 <td colspan="2">
-                    <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" />
-                    <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click"  />
+                    <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" TabIndex="7" />
+                    <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click" TabIndex="8"  />
                 </td>
             </tr>
         </table>

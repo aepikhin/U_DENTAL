@@ -15,6 +15,7 @@ namespace U_DENTAL.VIEW.app
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DBPruebas)Session["db"];
+            TextBuscar.Focus();
             if(!IsPostBack)
                 ListBoxEncontrados.Items.Insert(0, new ListItem("Expediente a mostrar", "0"));
             ListBoxEncontrados.SelectedIndex = 0;
@@ -57,7 +58,7 @@ namespace U_DENTAL.VIEW.app
             {
                 Session["nexp"] = ListBoxEncontrados.SelectedValue;
                 Response.Redirect("~/VIEW/app/modificarExpediente.aspx");
-            }
+            } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
         }
 
         protected void ButtonCancelar_Click(object sender, EventArgs e)

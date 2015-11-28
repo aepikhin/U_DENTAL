@@ -20,14 +20,14 @@
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelBoxesOcupados" runat="server" Text="Boxes Ocupados"></asp:Label></td>
                 <td colspan="2">
-                    <asp:ListBox ID="ListBoxBoxesOcupados" runat="server" OnSelectedIndexChanged="ListBoxBoxesOcupados_SelectedIndexChanged"></asp:ListBox>
+                    <asp:ListBox ID="ListBoxBoxesOcupados" runat="server" OnSelectedIndexChanged="ListBoxBoxesOcupados_SelectedIndexChanged" TabIndex="1"></asp:ListBox>
                 </td>
             </tr>
             <tr>
                 <td class="TdToRight"><asp:Label ID="LabelBoxesLibres" runat="server" Text="Boxes Libres para asignar paciente"></asp:Label></td>
-                <td><asp:ListBox ID="ListBoxBoxesLibres" runat="server" OnSelectedIndexChanged="ListBoxBoxesLibres_SelectedIndexChanged" AutoPostBack="True"></asp:ListBox>
+                <td><asp:ListBox ID="ListBoxBoxesLibres" runat="server" OnSelectedIndexChanged="ListBoxBoxesLibres_SelectedIndexChanged" AutoPostBack="True" TabIndex="2"></asp:ListBox>
                 </td>
-                <td><asp:DropDownList ID="DropDownListPacientesParaAsignar" runat="server" OnSelectedIndexChanged="DropDownListPacientesParaAsignar_SelectedIndexChanged">
+                <td><asp:DropDownList ID="DropDownListPacientesParaAsignar" runat="server" OnSelectedIndexChanged="DropDownListPacientesParaAsignar_SelectedIndexChanged" TabIndex="3">
                     <asp:ListItem>Pacientes</asp:ListItem>
                     </asp:DropDownList>
                 </td>
@@ -35,8 +35,8 @@
             <tr>
             <td class="TdToRight"></td>
             <td colspan="2">
-                <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" />
-                <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click"  />
+                <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" TabIndex="4" />
+                <asp:Button ID="ButtonCancelar" runat="server" Text="Cancelar" OnClick="ButtonCancelar_Click" TabIndex="5"  />
             </td>
             </tr>
         </table>

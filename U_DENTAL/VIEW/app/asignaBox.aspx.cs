@@ -16,6 +16,7 @@ namespace U_DENTAL.VIEW.app
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DBPruebas)Session["db"];
+            ListBoxBoxesLibres.Focus();
             if (!IsPostBack)
             {
                 IList<Box> boxes = (IList<Box>)db.selectAllBoxes();
@@ -46,8 +47,8 @@ namespace U_DENTAL.VIEW.app
                 db.selectBox(box).Cliente = db.selectExpediente(nexp);
                 db.selectBox(box).Cliente.Medico.Libre = false;
                 Response.Redirect("~/VIEW/app/grabado.aspx");
-            }
-            
+            } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
+
         }
 
         protected void ButtonCancelar_Click(object sender, EventArgs e)
