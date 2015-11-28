@@ -156,15 +156,6 @@ namespace U_DENTAL.BBDD
             return tempExpe;
         }
 
-        public IList<Expediente> selectExpedientes(String dniMedico)
-        {
-            IList<Expediente> tempExpe = new List<Expediente>();
-            foreach (Expediente expe in this.expedientes)
-                if (expe.Medico.DniMedico == dniMedico)
-                    tempExpe.Add(expe);
-            return tempExpe;
-        }
-
         public Medico selectMedico(String dniMedico)
         {
             foreach (Medico medico in this.medicos)
@@ -217,6 +208,9 @@ namespace U_DENTAL.BBDD
             this.insertExpediente("Nombre 4", "Apellido 4", DateTime.Parse("15/09/1912"), 'M');
             this.insertExpediente("Nombre 6", "Apellido 4", DateTime.Parse("15/09/1966"), 'M');
             this.insertExpediente("Nombre 4", "Apellido 5", DateTime.Parse("15/09/1942"), 'M');
+
+            this.insertExpediente("Pepe", "Apellido 1", DateTime.Parse("12/12/1912"), 'H');
+            this.insertExpediente("Pepe", "Apellido 2", DateTime.Parse("12/12/1912"), 'M');
 
             // Boxes
             temp = this.insertBox();

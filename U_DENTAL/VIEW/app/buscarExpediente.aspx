@@ -37,7 +37,7 @@
             </tr>
             <tr>
             <td class="TdToRight">
-                <asp:ListBox ID="ListBoxEncontrados" runat="server" OnSelectedIndexChanged="ListBoxEncontrados_SelectedIndexChanged" AutoPostBack="True" TabIndex="3"></asp:ListBox>
+                <asp:ListBox ID="ListBoxEncontrados" runat="server" OnSelectedIndexChanged="ListBoxEncontrados_SelectedIndexChanged" TabIndex="3"></asp:ListBox>
             </td>
             <td colspan="2">
                 <asp:Button ID="ButtonAceptar" runat="server" Text="Aceptar" OnClick="ButtonAceptar_Click" TabIndex="4" />
