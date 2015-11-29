@@ -201,7 +201,7 @@ namespace U_DENTAL.BBDD
             this.asignaMedicoExpediente(this.selectExpediente(temp), this.selectMedico("12345678E"));
             this.asignaEspecialidadExpediente(this.selectExpediente(temp), this.selectEspecialidad("Especialidad 3"));
 
-            this.insertExpediente("Nombre 3", "Apellido 3", DateTime.Parse("14/10/1912"), 'H');
+            temp = this.insertExpediente("Nombre 3", "Apellido 3", DateTime.Parse("14/10/1912"), 'H');
             this.asignaMedicoExpediente(this.selectExpediente(temp), this.selectMedico("12345678D"));
             this.asignaEspecialidadExpediente(this.selectExpediente(temp), this.selectEspecialidad("Especialidad 2"));
 
