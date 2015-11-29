@@ -24,8 +24,10 @@ namespace U_DENTAL.VIEW.app
         {
             if(TextNombre.Text.Trim() != "" && TextApellidos.Text.Trim() != "" && !CheckNif.Check(TextDni.Text, false))
             {
-                db.insertMedico(TextDni.Text, TextNombre.Text, TextApellidos.Text, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue));
-                Response.Redirect("~/VIEW/app/grabado.aspx");
+                if (!db.insertMedico(TextDni.Text, TextNombre.Text, TextApellidos.Text, db.selectEspecialidad(DropDownListEspecialidad.SelectedValue)))
+                    ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Medico existente!');", true);
+                else
+                    Response.Redirect("~/VIEW/app/grabado.aspx");
             } else ScriptManager.RegisterClientScriptBlock(this, GetType(), "alertMessage", "alert('Datos incorrectos!');", true);
         }
 
