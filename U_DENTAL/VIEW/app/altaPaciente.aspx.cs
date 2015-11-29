@@ -6,13 +6,14 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using U_DENTAL.BBDD;
 using U_DENTAL.BBDD.DATA;
+using U_DENTAL.APP.DAO;
 using System.Globalization;
 
 namespace U_DENTAL.VIEW.app
 {
     public partial class altaPaciente : System.Web.UI.Page
     {
-        DBPruebas db;
+        ICapaDatos db;
 
         protected void Page_Load(object sender, EventArgs e)
         {

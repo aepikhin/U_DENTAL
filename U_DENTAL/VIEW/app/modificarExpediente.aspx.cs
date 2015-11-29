@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using U_DENTAL.BBDD;
+using U_DENTAL.APP.DAO;
 using U_DENTAL.BBDD.DATA;
 
 namespace U_DENTAL.VIEW.app
 {
     public partial class modificarExpediente : System.Web.UI.Page
     {
-        DBPruebas db;
+        ICapaDatos db;
         Expediente exp;
         Box box;
 

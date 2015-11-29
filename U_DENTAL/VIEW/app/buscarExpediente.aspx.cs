@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using U_DENTAL.BBDD;
 using U_DENTAL.BBDD.DATA;
+using U_DENTAL.APP.DAO;
 
 namespace U_DENTAL.VIEW.app
 {
     public partial class buscarExpediente : System.Web.UI.Page
     {
-        DBPruebas db;
+        ICapaDatos db;
         protected void Page_Load(object sender, EventArgs e)
         {
             db = (DBPruebas)Session["db"];

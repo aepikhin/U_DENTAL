@@ -25,7 +25,11 @@ namespace U_DENTAL.APP.DAO
         IList<Expediente> selectAllExpedientes();
 
         Expediente selectExpediente(int nExpediente);
-        
+
+        Expediente selectExpediente(Box box);
+
+        IList<Expediente> selectExpedientes(Box box);
+
         IList<Expediente> selectExpedientesNombre(String nombre);
 
         IList<Expediente> selectExpedientesApellidos(String apellido);
@@ -45,7 +49,6 @@ namespace U_DENTAL.APP.DAO
         Box selectBox(int idBox);
 
         Box selectBox(Expediente expediente);
-
-        IList<Expediente> selectExpedientes(Box box);
+        
     }
 }

@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using U_DENTAL.BBDD;
+using U_DENTAL.APP.DAO;
 
 namespace U_DENTAL.VIEW.app
 {
@@ -19,7 +20,8 @@ namespace U_DENTAL.VIEW.app
         {
             if (Session["db"] == null)
             {
-                Session["db"] = new DBPruebas();
+                ICapaDatos db = new DBPruebas();
+                Session["db"] = db;
             }
         }
     }
