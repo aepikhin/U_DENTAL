@@ -39,7 +39,7 @@ namespace U_DENTAL.VIEW.app
 
         protected void ButtonAceptar_Click(object sender, EventArgs e)
         {
-            if(ListBoxBoxesLibres.SelectedValue != null && DropDownListPacientesParaAsignar.SelectedValue != "0")
+            if(ListBoxBoxesLibres.SelectedIndex >= 0 && DropDownListPacientesParaAsignar.SelectedValue != "0")
             {
                 int box = 0, nexp = 0;
                 int.TryParse(ListBoxBoxesLibres.SelectedValue, out box);
